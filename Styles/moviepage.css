@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+
+
+}
+
+img {
+    width: 300px;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+   
+}
+
+
+p {
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif;
+
+    margin: 10px 10px 10px 10px;
+}
+h3 {
+    font-size: 40px;
+    font-family:'Times New Roman', Times, serif;
+    margin: 10px 10px 10px 10px;
+}
+Button{
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: #9e9e9e;
+    color:black;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+}
+@media screen and (max-Width: 320px) {
+
+   img{
+    width: 150px;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+    cursor: pointer;}
+   }
