@@ -134,4 +134,32 @@ img{
         margin: 10px 10px 10px 10px;  
 
   }
+  #gridcontainer {
+    display: grid;
+    grid-template-columns:  10% 90% ;
+    grid-template-rows: 
+    200px 100px 100px 100px 100px 100px 100px 100px 
+    100px 100px 100px 100px 100px 100px 100px 100px 
+    100px 100px 100px 100px 100px 100px 100px 100px 
+    100px 100px 120px 100px 100px ;
+    background-color: #f2f2f2;  
+}
+.header {
+    display: block;
+    background-color: #6fa5b6;
+    align-items: center;
+    grid-column: 1/6;
+    grid-row: 1/2;
+    text-align: center;
+
+
+}
+#footer {
+    display: block;
+    background-color: #c249a8;
+    grid-column: 1/6;
+    grid-row: 28/30 ;
+    text-align: center;
+    
+}
 }

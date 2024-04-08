@@ -36,7 +36,7 @@ Button{
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-    width: 100px;
+    width: 200px;
 }
 @media screen and (max-Width: 320px) {
 

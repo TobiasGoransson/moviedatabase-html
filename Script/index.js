@@ -157,6 +157,33 @@ movielist.push(new Movie("Star Wars: Episod VI - Jedins återkomst",
  const movies_grid = document.getElementById("movies_grid");
  const movies = document.getElementsByClassName("movie");
 
+ let json1 = localStorage.getItem("addmovie");
+ if (json1) {
+     let json1Object = JSON.parse(json1);
+     let newmovie = new Movie(json1Object.title, json1Object.director, json1Object.rating, json1Object.Storyline, json1Object.image, json1Object.year, json1Object.genre);
+ 
+     movielist.push(newmovie);
+     localStorage.removeItem("addmovie");
+ }
+
+let jsoan = localStorage.getItem("movietoremove");
+let jsoanObject = JSON.parse(jsoan);
+console.log(jsoanObject);
+
+for (let i = 0; i < movielist.length; i++) {
+    let movie = movielist[i];
+    if (jsoanObject.title === movie.title) {
+        movielist.splice(i, 1);
+    }
+}
+
+ for (let i = 0; i < movielist.length; i++) {
+    const movie = movielist[i];
+
+    const movieElement = createMovieElement(movie);
+    movies_grid.appendChild(movieElement);
+}
+
  function createMovieElement(movie) {
     const movieDiv = document.createElement("div");
     movieDiv.classList.add("movie");
@@ -173,12 +200,7 @@ movielist.push(new Movie("Star Wars: Episod VI - Jedins återkomst",
     return movieDiv;
 }
 
- for (let i = 0; i < movielist.length; i++) {
-     const movie = movielist[i];
 
-     const movieElement = createMovieElement(movie);
-     movies_grid.appendChild(movieElement);
- }
  
  function handleImageClick(event) {
     let itemClicked = event.target;
@@ -312,13 +334,54 @@ fantasyButton.addEventListener("click", function() {
 
 }
 );
-const addButton = document.getElementById("AddButton");
+
+const actionButton = document.getElementById("actionButton");
+
+actionButton.addEventListener("click", function() {
+        
+        movies_grid.innerHTML = "";
+    
+            for (let i = 0; i < movielist.length; i++) {
+                const movie = movielist[i];
+                if (movie.genre === "Action") 
+                {
+                    const movieElement = createMovieElement(movie);
+                    movies_grid.appendChild(movieElement);
+                }
+            }
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+        img.addEventListener("click", handleImageClick);
+        });
+    
+    }   
+);
+
+const addButton = document.getElementById("addButton");
 
 addButton.addEventListener("click", function() {
     window.location.href = "addmovie.html";
 });
 
+let json = localStorage.getItem("addmovie");
+if (json) {
+    let jsonObject = JSON.parse(json);
+    let newmovie = new Movie(jsonObject.title, jsonObject.director, jsonObject.rating, jsonObject.Storyline, jsonObject.image, jsonObject.year, jsonObject.genre);
 
+    movielist.push(newmovie);
+    localStorage.removeItem("addmovie");
+}
+
+json = localStorage.getItem("movietoremove");
+let jsonObject = JSON.parse(json);
+console.log(jsonObject);
+
+for (let i = 0; i < movielist.length; i++) {
+    let movie = movielist[i];
+    if (jsonObject.title === movie.title) {
+        movielist.splice(i, 1);
+    }
+}
 
 
 

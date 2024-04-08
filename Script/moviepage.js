@@ -2,9 +2,9 @@
 let json = localStorage.getItem("movie");
 let jsonObject = JSON.parse(json);
 
-console.log(jsonObject);
 
-let movie = new Movie(jsonObject.title, jsonObject.director, jsonObject.rating, jsonObject.Storyline, jsonObject.image, jsonObject.year, jsonObject.genre);
+
+const movie = new Movie(jsonObject.title, jsonObject.director, jsonObject.rating, jsonObject.Storyline, jsonObject.image, jsonObject.year, jsonObject.genre);
 
 const title = document.getElementById("title");
 const director = document.getElementById("Director");
@@ -30,5 +30,12 @@ const back = document.getElementById("backButton");
         window.location.href = "index.html";
     });
 
-const remove = document.getElementById("removeButton");
+const remove = document.getElementById("removebutton");
+
+remove.addEventListener("click", function() {
+    let movieToRemove = JSON.stringify(movie);
+    console.log(movieToRemove);
+            localStorage.setItem("movietoremove", movieToRemove);    
+           window.location.href = "index.html";
+});
 
